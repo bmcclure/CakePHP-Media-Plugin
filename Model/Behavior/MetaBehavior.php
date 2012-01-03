@@ -19,8 +19,10 @@
 App::uses('Inflector', 'Utility');
 App::uses('Cache', 'Cache');
 
-require_once 'Mime/Type.php';
-require_once 'Media/Info.php';
+//require_once 'Mime/Type.php';
+//require_once 'Media/Info.php';
+App::uses('Type', 'mm/Mime');
+App::uses('Info', 'mm/Media');
 
 /**
  * Coupler Behavior Class

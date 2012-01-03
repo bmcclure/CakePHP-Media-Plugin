@@ -20,7 +20,8 @@ App::uses('Folder', 'Utility');
 App::uses('MediaValidation', 'Media.Lib');
 App::uses('TransferValidation', 'Media.Lib');
 
-require_once 'Mime/Type.php';
+//require_once 'Mime/Type.php';
+App::uses('Type', 'mm/Mime');
 
 /**
  * Transfer Behavior Class

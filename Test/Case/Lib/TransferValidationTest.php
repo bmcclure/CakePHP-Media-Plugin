@@ -17,7 +17,7 @@
  * @link       http://github.com/davidpersson/media
  */
 App::import('Lib','Media.TransferValidation');
-require_once dirname(dirname(dirname(__FILE__))) . DS . 'fixtures' . DS . 'test_data.php';
+require_once dirname(dirname(dirname(__FILE__))) . DS . 'Fixture' . DS . 'test_data.php';
 
 /**
  * Transfer Validation Test Case Class

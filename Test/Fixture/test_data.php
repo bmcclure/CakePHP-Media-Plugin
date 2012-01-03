@@ -16,7 +16,9 @@
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://github.com/davidpersson/media
  */
-uses('object');
+App::uses('Object', 'Core');
+App::uses('Folder', 'Utility');
+App::uses('File', 'Utility');
 
 /**
  * Test Data Class

@@ -229,8 +229,7 @@ class MediaHelper extends AppHelper {
 			case 'image':
 				$attributes = $this->_addDimensions($sources[0]['file'], $attributes);
 
-				return sprintf(
-					$this->Html->tags['image'],
+				return $this->Html->useTag('image',
 					$sources[0]['url'],
 					$this->_parseAttributes($attributes)
 				);
@@ -559,10 +558,10 @@ class MediaHelper extends AppHelper {
  */
 	function _parseAttributes($options) {
 		$attributes = array();
-		$minimizedAttributes = array('autoplay', 'controls', 'autobuffer', 'loop');
+		$this->_minimizedAttributes = array('autoplay', 'controls', 'autobuffer', 'loop');
 
 		foreach ($options as $key => $value) {
-			if (in_array($key, $minimizedAttributes)) {
+			if (in_array($key, $this->_minimizedAttributes)) {
 				if ($value === 1 || $value === true || $value === 'true' || $value == $key) {
 					$attributes[] = sprintf('%s="%s"', $key, $key);
 					unset($options[$key]);

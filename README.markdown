@@ -19,9 +19,9 @@
 ``git submodule add https://aeolu@github.com/aeolu/CakePHP-Media-Plugin.git Plugin/Media``
 3. Load the plugin.
 <pre>
-    ``//Within you bootstrap.php``
+    ``//Within your bootstrap.php``
     ``CakePlugin::load('Media');``
-    ``require_once APP . 'Plugin/Media/config/core.php';``
+    ``require APP . 'Plugin' . DS . 'Media' . DS . 'Config' . DS . 'core.php';``
 </pre>
 4. Initialize Media files.
 ``cake Media.Media init``

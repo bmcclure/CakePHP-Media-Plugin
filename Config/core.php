@@ -11,7 +11,7 @@
  *
  * {{{
  *     define('MEDIA', ROOT . DS . 'media' . DS);
- *     require APP . 'plugins/media/config/core.php';
+ *     require APP . 'Plugin' . DS . 'Media' . DS . 'Config' . DS . 'core.php';
  *
  *     Configure::write('Media.filter.document.xs', array(
  *         'convert' => 'image/png',  'compress' => 9.6, 'zoomCrop' => array(16,16)

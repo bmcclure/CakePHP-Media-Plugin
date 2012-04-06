@@ -14,9 +14,9 @@ application's plugins directory.
 $ git clone git://github.com/davidpersson/media.git plugins/media
 
 Now we go and load the configuration that comes with the plugin. Edit
-your app's config/core.php and add the following code.
+your app's Config/core.php and add the following code.
 {{{
-    require APP . '/plugins/media/config/core.php';
+    require APP . 'Plugin' . DS . 'Media' . DS . 'Config' . DS . 'core.php';
 }}}
 
 In order to initialize the directories for storing i.e. uploaded files
@@ -120,7 +120,7 @@ var $virtualFields = array(
 Filtering Uploaded Files
 ------------------------
 Most of this should Just Work(TM) as it is expected that you have a pretty
-default setup. Have a look at the plugin's config/core.php file on more options
+default setup. Have a look at the plugin's Config/core.php file on more options
 to configure the Media_Process class which is used by the following behavior
 class if something doesn't work the way expected here.
 
@@ -133,7 +133,7 @@ class Post extends AppModel {
 }}}
 
 As the generator behavior will make versions of the uploaded file according to
-configuration, we open up the plugin's config/core.php to have a look on the
+configuration, we open up the plugin's Config/core.php to have a look on the
 defaults.
 {{{
 ...
@@ -152,7 +152,7 @@ Configure::write('Media.filter', array(
 This set of configurations is called instructions. Basically these are methods
 which get called on the Media_Process_* class. However the defaults should work
 fine for us. Keep in mind that if you'd like to change the defaults you should
-do so in your app's config/core.php right after the statement where you load
+do so in your app's Config/core.php right after the statement where you load
 the plugin's configuration.
 
 Repeat uploading the file as you did in prior steps. This time - assuming 
@@ -171,7 +171,7 @@ user's can access any files they uploaded there. If you can't trust
 the user's being able to upload stuff you better go with the following
 steps:
 
- - Relocate the transfer directory. In your app's config/core.php add
+ - Relocate the transfer directory. In your app's Config/core.php add
    following code right above the statement where you load the plugin
    configuration.
    {{{
@@ -183,7 +183,7 @@ steps:
    $ cake/console/cake media init
 
  - Block requests through the webserver's configuration. In your app's
-   config/core.php add following code right above the statement where you load
+   Config/core.php add following code right above the statement where you load
    the plugin configuration.
    {{{   
    define('MEDIA_TRANSFER_URL', false);

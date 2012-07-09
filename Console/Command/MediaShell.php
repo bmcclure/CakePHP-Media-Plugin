@@ -36,7 +36,7 @@ class MediaShell extends Shell {
  * @var string
  * @access public
  */
-	var $tasks = array('Sync', 'Make');
+	var $tasks = array('Media.Sync', 'Media.Make');
 
 /**
  * Verbose mode

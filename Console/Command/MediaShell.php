@@ -17,7 +17,7 @@
  * @link       http://github.com/davidpersson/media
  */
 App::uses('ConnectionManager', 'Model');
-require_once(dirname(dirname(dirname(__FILE__))) . DS . 'Config' . DS. 'core.php');
+require_once(dirname(dirname(dirname(__FILE__))) . DS . 'Config' . DS. 'bootstrap.php');
 App::uses('Folder', 'Utility');
 
 Configure::write('Cache.disable', true);

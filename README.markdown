@@ -14,9 +14,9 @@
 
 ##Installation
 1. Clone into /path/to/app/Plugin 
-``git clone https://aeolu@github.com/aeolu/CakePHP-Media-Plugin.git Media``
+``git clone https://bmcclure@github.com/bmcclure/CakePHP-Media-Plugin.git Media``
 2. Add as a submodule
-``git submodule add https://aeolu@github.com/aeolu/CakePHP-Media-Plugin.git Plugin/Media``
+``git submodule add https://bmcclure@github.com/bmcclure/CakePHP-Media-Plugin.git Plugin/Media``
 3. Load the plugin.
 <pre>
     ``//Within your bootstrap.php``

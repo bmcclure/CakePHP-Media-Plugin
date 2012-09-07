@@ -239,10 +239,10 @@ class TransferBehavior extends ModelBehavior {
 			));
 
 			if (!class_exists('HttpSocket')) {
-				App::import('Core', 'HttpSocket');
+				App::uses('HttpSocket','Network/Http');
 			}
 			$Socket = new HttpSocket(array('timeout' => 5));
-			$Socket->request(array('method' => 'HEAD', 'uri' => $resource['file']));
+			$Socket->get($resource['file']);
 
 			if (empty($Socket->error) && $Socket->response['status']['code'] == 200) {
 				$resource = array_merge(

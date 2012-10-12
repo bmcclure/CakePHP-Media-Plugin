@@ -11,10 +11,13 @@ class GeneratedDeletableBehavior extends ModelBehavior {
 			'fields' => array('dirname', 'basename'),
 			'recursive' => -1,
 		));
-
+                
 		if (empty($result)) {
 			return false;
 		}
+                if (empty($result[$Model->alias]['basename']) && empty($result[$Model->alias]['dirname'])) {
+                    return true;
+                }
 
 		$pattern = MEDIA_FILTER.'*'.DS.$result[$Model->alias]['dirname'].DS;
 		$pattern .= pathinfo($result[$Model->alias]['basename'], PATHINFO_FILENAME).'.*';

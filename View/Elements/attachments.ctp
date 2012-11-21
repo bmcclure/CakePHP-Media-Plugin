@@ -56,7 +56,7 @@ if (isset($this->data[$assocAlias][0]['basename'])) {
 }
 
 if (!isset($title)) {
-	$title = sprintf(__('%s', true), Inflector::pluralize($assocAlias));
+	$title = sprintf(__('%s'), Inflector::pluralize($assocAlias));
 }
 ?>
 <div class="attachments element">

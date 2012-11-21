@@ -16,6 +16,7 @@
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://github.com/davidpersson/media
  */
+App::uses('MediaAppModel', 'Media.Model');
 
 /**
  * Attachment Model Class

@@ -66,9 +66,6 @@ class MediaValidation extends Validation {
  * @return boolean
  */
 	public static function extension($check, $deny = false, $allow = true) {
-		if (!is_string($check) || !preg_match('/^[\w0-9]+(\.[\w0-9]+)?$/', $check)) {
-			return false;
-		}
 		list($deny, $allow) = self::_normalize($deny, $allow);
 
 		if ($deny === true || (is_array($deny) && Validation::extension($check, $deny))) {

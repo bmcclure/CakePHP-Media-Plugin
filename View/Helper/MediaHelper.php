@@ -180,15 +180,6 @@ class MediaHelper extends AppHelper {
 			'poster' => null,
 			'full' => false
 		);
-		$optionalAttributes = array(
-			'alt' => null,
-			'id' => null,
-			'title' => null,
-			'class' => null,
-			'width' => null,
-			'height' => null,
-			'itemprop' => null
-		);
 
 		if (isset($options['url'])) {
 			$link = $options['url'];
@@ -198,13 +189,13 @@ class MediaHelper extends AppHelper {
 				'escape' => false
 			));
 		}
+		$attributes = array_diff_key($options, array_keys($default));
 		$options = array_merge($default, $options);
 		extract($options, EXTR_SKIP);
 
 		if (!$sources = $this->_sources((array) $paths, $full)) {
 			return;
 		}
-		$attributes = array_intersect_key($options, $optionalAttributes);
 
 		switch($sources[0]['name']) {
 			case 'audio':

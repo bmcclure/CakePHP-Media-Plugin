@@ -346,41 +346,6 @@ class GeneratorBehavior extends ModelBehavior {
 		}
 		return array($file, $relativeFile);
 	}
-
-	public function setFilter($Model, $filter = null) {
-		$this->settings[$Model->alias]['filter'] = $filter;
-	}
-
-/**
- * Returns the configured filter array
- *
- * @param Model $Model
- * @param string $file
- * @return array
- */
-	public function filter($Model, $file) {
-		$name = Mime_Type::guessName($file);
-
-		$filter = $this->settings[$Model->alias]['filter'];
-
-		$default = false;
-		if (!is_array($filter)) {
-			$filters = Configure::read('Media.filter');
-
-			if (is_string($filter) && isset($filters[$filter])) {
-				$filter = $filters[$filter];
-			} else {
-				$filter = $filters['default'];
-				$default = true;
-			}
-		}
-
-		if (($default !== true) && ($this->settings[$Model->alias]['mergeFilter'] === true)) {
-			$filter = array_merge($filters['default'], (array)$filter);
-		}
-
-		return $filter[$name];
-    }
 }
 
 ?>

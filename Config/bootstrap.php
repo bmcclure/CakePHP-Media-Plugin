@@ -236,12 +236,12 @@ $m = array('convert' => 'image/jpeg', 'fit' => array(300, 300));
 $l = array('convert' => 'image/jpeg', 'fit' => array(600, 440));
 $original = array('clone'=>'copy');
 
-Configure::write('Media.filter', array('default' => array(
+Configure::write('Media.filter', array(
 	'audio' => compact('s', 'm'),
 	'document' => compact('s', 'm','original'),
 	'generic' => array('original'=>array('clone'=>'copy')),
 	'image' => compact('s', 'm', 'l','original'),
 	'video' => compact('s', 'm')
-)));
+));
 
 ?>

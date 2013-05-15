@@ -156,7 +156,13 @@ class GeneratorBehavior extends ModelBehavior {
 		list($file, $relativeFile) = $this->_file($Model, $file);
 		$relativeDirectory = DS . rtrim(dirname($relativeFile), '.');
 
-		$filter = Configure::read('Media.filter.' . Mime_Type::guessName($file));;
+		//$filter = Configure::read('Media.filter.' . Mime_Type::guessName($file));;
+		$filter = Configure::read('Media.filter');
+		if (isset($filter[$Model->alias])) {
+		    $filter = $filter[$Model->alias][Mime_Type::guessName($file)];
+		} else {
+		    $filter = $filter['default'][Mime_Type::guessName($file)];
+		}
 		$result = true;
 
 		foreach ($filter as $version => $instructions) {

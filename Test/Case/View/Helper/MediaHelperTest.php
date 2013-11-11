@@ -203,9 +203,10 @@ class MediaHelperTest extends CakeTestCase {
 		$result = $this->Media->embed('img/image-png', array(
 			'id' => 'my-image',
 			'class' => 'image',
-			'data-custom' => 42
+			'data-custom' => 42,
+			'url' => '#link'
 		));
-		$expected = '<img src="/media/static/img/image-png.png"  id="my-image" class="image" data-custom="42" height="54" width="70" />';
+		$expected = '<a href="#link"><img src="/media/static/img/image-png.png"  id="my-image" class="image" data-custom="42" height="54" width="70" /></a>';
 		$this->assertEqual($result, $expected);
 
 		$this->Data->getFile(array(

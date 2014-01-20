@@ -76,3 +76,7 @@ Do you want to create it now?
 ``<?php echo $this->Media->embed(h($employee['User']['basename'])); ?>``
 </pre>
 4. ENJOY!
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bmcclure/cakephp-media-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

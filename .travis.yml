@@ -1,0 +1,63 @@
+language: php
+
+php:
+  - 5.5
+  - 5.4
+  - 5.3
+  - 5.2
+
+env:
+  global:
+    - CAKEPHP_ERROR_CONFIG=""
+    - CAKEPHP_SHELL_NAME=test
+
+  matrix:
+    - CAKEPHP_VERSION=master
+    - CAKEPHP_VERSION=2.5
+    - CAKEPHP_VERSION=2.3.10
+    - CAKEPHP_VERSION=2.2.9
+    - CAKEPHP_VERSION=2.1.5
+    - CAKEPHP_VERSION=2.0.6 CAKEPHP_SHELL_NAME=testsuite
+
+before_script:
+  - printf "\n" | pecl install imagick
+  - php -m
+  - git clone --depth 1 --branch $CAKEPHP_VERSION git://github.com/cakephp/cakephp ../cakephp
+  - cd ../cakephp
+  - cp -R ../CakePHP-Media-Plugin ./plugins/Media
+  - chmod -R 777 ./app/tmp
+  - mysql -e 'CREATE DATABASE cakephp_media_plugin_test;'
+  - echo "<?php
+    class DATABASE_CONFIG {
+      public \$test = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+        'host' => '127.0.0.1',
+        'login' => 'travis',
+        'database' => 'cakephp_media_plugin_test',
+        'encoding' => 'utf8'
+      );
+    }" > ./app/Config/database.php
+  - echo "
+    if(version_compare('$CAKEPHP_VERSION', '2.1', '<') && version_compare(PHP_VERSION, '5.4', '>=')) {
+      Configure::write('Error', array(
+        'handler' => 'ErrorHandler::handleError',
+        'level' => E_ALL & ~E_DEPRECATED & ~E_STRICT,
+        'trace' => true
+      ));
+    }" >> ./app/Config/bootstrap.php
+  - echo "<?php
+    \$config = array(
+      'tags' => array(
+        'foo' => '<foo%s/>'
+      ),
+      'minimizedAttributes' => array(
+        'qux'
+      )
+    );" > ./app/Config/media_helper.php
+
+script:
+  - ./lib/Cake/Console/cake $CAKEPHP_SHELL_NAME Media AllTests --stderr
+
+notifications:
+  email: false

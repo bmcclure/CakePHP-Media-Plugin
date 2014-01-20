@@ -1,0 +1,9 @@
+{
+	"name": "CakePHP Media Plugin",
+	"description": "CakePHP Media Plugin",
+
+	"dependencies": {
+		"plugins": [
+		]
+	}
+}

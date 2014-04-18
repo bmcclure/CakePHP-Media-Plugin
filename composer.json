@@ -1,0 +1,34 @@
+{
+	"name": "bmcclure/cakephp-media-plugin",
+	"description": "CakePHP Media Plugin",
+	"type": "cakephp-plugin",
+	"keywords": ["cakephp", "media", "upload", "convert"],
+	"homepage": "https://github.com/bmcclure/CakePHP-Media-Plugin",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Ben McClure",
+			"role": "Maintainer",
+			"homepage": "https://github.com/bmcclure"
+		},
+		{
+			"name": "Community",
+			"role": "Contributor",
+			"homepage": "https://github.com/bmcclure/CakePHP-Media-Plugin/graphs/contributors"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/bmcclure/CakePHP-Media-Plugin/issues",
+		"source": "https://github.com/bmcclure/CakePHP-Media-Plugin"
+	},
+	"require": {
+		"php": ">=5.2.8",
+		"composer/installers": "*"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-cake-2.0": "2.x-dev"
+		},
+		"installer-name": "Media"
+	}
+}

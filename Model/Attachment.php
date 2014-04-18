@@ -52,7 +52,8 @@ class Attachment extends MediaAppModel {
 		),
 		'Media.Polymorphic',
 		'Media.Coupler' => array(
-			'baseDirectory' => MEDIA_TRANSFER
+			'baseDirectory' => MEDIA_TRANSFER,
+			'forceDelete'   => false
 		),
 		'Media.Meta' => array(
 			'level' => 2
